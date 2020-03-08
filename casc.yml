@@ -10,3 +10,4 @@ jobs:
               }
           }
       }
+  - url: https://raw.githubusercontent.com/kedark3/jcasc-example/master/seed.groovy
