@@ -1,22 +1,5 @@
 jenkins:
   systemMessage: "Controlled by Configuration as Code"
-  securityRealm:
-    ldap:
-      configurations:
-        - server: ldap.acme.com
-          rootDN: dc=acme,dc=fr
-          managerDN: "manager"
-          managerPasswordSecret: ${LDAP_PASSWORD}
-          userSearch: "(&(objectCategory=User)(sAMAccountName={0}))"
-          groupSearchFilter: "(&(cn={0})(objectclass=group))"
-          groupMembershipStrategy:
-            fromGroupSearch:
-              filter: "(&(objectClass=group)(|(cn=GROUP_1)(cn=GROUP_2)))"
-      cache:
-        size: 100
-        ttl: 10
-      userIdStrategy: CaseInsensitive
-      groupIdStrategy: CaseSensitive
 jobs:
   - script: >
       multibranchPipelineJob('configuration-as-code') {
@@ -28,3 +11,12 @@ jobs:
           }
       }
   - url: https://raw.githubusercontent.com/kedark3/jcasc-example/master/seed.groovy
+
+unclassified:
+  ansibleTowerGlobalConfig:
+    towerInstallation:
+      - enableDebugging: true
+        towerCredentialsId: ansible-tower-jenkins-user  # create these by hand in jenkins
+        towerDisplayName: Infra-Ansible-Tower-01
+        towerTrustCert: true
+        towerURL: https://infra-ansible-tower-01.example.com
