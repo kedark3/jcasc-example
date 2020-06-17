@@ -2,15 +2,26 @@ jenkins:
   systemMessage: "Controlled by Configuration as Code"
 
 unclassified:
+  shell:
+    shell: "bash"
+  ansibleTowerGlobalConfig:
+    towerInstallation:
+      - enableDebugging: true
+        towerCredentialsId: ansible-tower-jenkins-user  # create these by hand in jenkins
+        towerDisplayName: Infra-Ansible-Tower-01
+        towerTrustCert: true
+        towerURL: https://infra-ansible.example.com
   globalLibraries:
     libraries:
       - defaultVersion: "master"
-        name: "satqe_pipeline_lib_ere"
+        name: "satqe_pipeline_lib"
         retriever:
           modernSCM:
             scm:
               git:
                 id: "f999d5d7-36af-47d1-95eb-9528eeb2e828"
-                remote: "https://gitlab.exmple.com/satelliteqe/satelliteqe-jenkins.git"
+                remote: "https://gitlab.example.com/satelliteqe/satelliteqe-jenkins.git"
                 traits:
                 - "gitBranchDiscovery"
+#                  - branchDiscoveryTrait:
+#                      strategyId: 1
