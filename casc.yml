@@ -11,13 +11,13 @@ unclassified:
   #       towerURL: https://infra-ansible-tower-01.example.com
   globalLibraries:
     libraries:
-    - defaultVersion: "master"
-      name: "satqe_pipeline_lib"
-      retriever:
-        modernSCM:
-          scm:
-            git:
-              id: "f999d5d7-36af-47d1-95eb-9528eeb2e828"
-              remote: "https://gitlab.exmple.com/satelliteqe/satelliteqe-jenkins.git"
-              traits:
-              - "gitBranchDiscovery"
+      - defaultVersion: "master"
+        name: "satqe_pipeline_lib_ere"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                id: "f999d5d7-36af-47d1-95eb-9528eeb2e828"
+                remote: "https://gitlab.exmple.com/satelliteqe/satelliteqe-jenkins.git"
+                traits:
+                - "gitBranchDiscovery"
