@@ -1,16 +1,5 @@
 jenkins:
   systemMessage: "Controlled by Configuration as Code"
-jobs:
-  - script: >
-      multibranchPipelineJob('configuration-as-code') {
-          branchSources {
-              git {
-                  id = 'configuration-as-code'
-                  remote('https://github.com/jenkinsci/configuration-as-code-plugin.git')
-              }
-          }
-      }
-  - url: https://raw.githubusercontent.com/kedark3/jcasc-example/master/seed.groovy
 
 unclassified:
   ansibleTowerGlobalConfig:
